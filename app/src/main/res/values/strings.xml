@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NfcExample</string>
+    <string name="nfc_tag_not_available">Nfc tag is not available</string>
+    <string name="nfc_adapter_not_available">Nfc is not available</string>
 </resources>
