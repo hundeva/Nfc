@@ -4,7 +4,7 @@ import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.text.TextUtils;
 
-public class NdefRecordFactory {
+public class NdefFactory {
 
     public NdefMessage createNdefMessageForMessages(String... messages) {
         if (messages == null) {

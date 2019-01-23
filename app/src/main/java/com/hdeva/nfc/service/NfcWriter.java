@@ -10,7 +10,7 @@ import com.hdeva.nfc.R;
 
 public class NfcWriter {
 
-    private NdefRecordFactory ndefRecordFactory = new NdefRecordFactory();
+    private NdefFactory ndefFactory = new NdefFactory();
     private boolean writing;
 
     public void writeMessageToTag(Context context, Tag tag, String message) {
