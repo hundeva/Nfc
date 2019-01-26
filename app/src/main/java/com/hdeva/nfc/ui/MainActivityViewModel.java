@@ -21,10 +21,7 @@ public class MainActivityViewModel extends ViewModel {
             messages.postValue(ndefMessages);
         }
 
-        Tag nfcTag = reader.readTagFromIntent(intent);
-        if (nfcTag != null) {
-            tag.postValue(nfcTag);
-        }
+        tag.postValue(reader.readTagFromIntent(intent));
     }
 
 }
