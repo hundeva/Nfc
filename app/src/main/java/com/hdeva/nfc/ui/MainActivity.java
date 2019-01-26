@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupObservers() {
         viewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        viewModel.processIntent(getIntent());
         viewModel.messages.observe(this, this::observeMessages);
         viewModel.tag.observe(this, this::observeTag);
     }
