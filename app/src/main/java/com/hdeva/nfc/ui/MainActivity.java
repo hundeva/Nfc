@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.text.Editable;
+import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.hdeva.nfc.R;
+import com.hdeva.nfc.service.NfcWriter;
 import com.hdeva.nfc.ui.adapter.NdefMessagesAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,16 +35,31 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
 
     private NdefMessagesAdapter adapter;
+    private NfcWriter writer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.Theme_Nfc);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        writer = new NfcWriter();
         adapter = new NdefMessagesAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        floatingActionButton.setOnClickListener(this::writeTag);
         setupObservers();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        writer.enableWriteMode(this);
+    }
+
+    @Override
+    protected void onPause() {
+        writer.disableWriteMode(this);
+        super.onPause();
     }
 
     @Override
@@ -68,5 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void observeTag(Tag tag) {
         floatingActionButton.setEnabled(tag != null);
+    }
+
+    private void writeTag(View view) {
+        Editable editable = textInputEditText.getText();
+        writer.writeMessageToTag(this, viewModel.tag.getValue(), editable == null ? "" : editable.toString());
     }
 }

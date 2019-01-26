@@ -5,7 +5,6 @@ import android.nfc.NdefMessage;
 import android.nfc.Tag;
 
 import com.hdeva.nfc.service.NfcReader;
-import com.hdeva.nfc.service.NfcWriter;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -15,7 +14,6 @@ public class MainActivityViewModel extends ViewModel {
     public final MutableLiveData<Tag> tag = new MutableLiveData<>();
 
     private NfcReader reader = new NfcReader();
-    private NfcWriter writer = new NfcWriter();
 
     public void processIntent(Intent intent) {
         messages.postValue(reader.readNdefMessagesFromIntent(intent));
