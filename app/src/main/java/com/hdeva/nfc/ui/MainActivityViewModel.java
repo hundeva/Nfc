@@ -16,8 +16,15 @@ public class MainActivityViewModel extends ViewModel {
     private NfcReader reader = new NfcReader();
 
     public void processIntent(Intent intent) {
-        messages.postValue(reader.readNdefMessagesFromIntent(intent));
-        tag.postValue(reader.readTagFromIntent(intent));
+        NdefMessage[] ndefMessages = reader.readNdefMessagesFromIntent(intent);
+        if (ndefMessages != null) {
+            messages.postValue(ndefMessages);
+        }
+
+        Tag nfcTag = reader.readTagFromIntent(intent);
+        if (nfcTag != null) {
+            tag.postValue(nfcTag);
+        }
     }
 
 }

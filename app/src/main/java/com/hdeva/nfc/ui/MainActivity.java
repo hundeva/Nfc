@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         floatingActionButton.setOnClickListener(this::writeTag);
         setupObservers();
+        viewModel.processIntent(getIntent());
     }
 
     @Override
