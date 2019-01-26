@@ -6,7 +6,6 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class NfcReader {
 
@@ -32,8 +31,6 @@ public class NfcReader {
         if (TextUtils.equals(intent.getAction(), NfcAdapter.ACTION_TAG_DISCOVERED)) {
             tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
-        Log.i(":::", "readTagFromIntent: " + (tag == null ? "null" : tag.toString()));
-        Log.i(":::", "readTagFromIntent: " + intent.getAction());
         return tag;
     }
 }
