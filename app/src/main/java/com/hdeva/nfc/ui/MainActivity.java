@@ -6,6 +6,7 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     TextInputLayout textInputLayout;
     @BindView(R.id.main_edit_text)
     TextInputEditText textInputEditText;
+    @BindView(R.id.main_current_tag)
+    TextView currentTag;
     @BindView(R.id.main_recycler_view)
     RecyclerView recyclerView;
     @BindView(R.id.main_fab)
@@ -86,7 +89,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void observeTag(Tag tag) {
-        floatingActionButton.setEnabled(tag != null);
+        if (tag == null) {
+            floatingActionButton.hide();
+            currentTag.setText(R.string.no_available_tag);
+        } else {
+            floatingActionButton.show();
+            currentTag.setText(tag.toString());
+        }
     }
 
     private void writeTag(View view) {

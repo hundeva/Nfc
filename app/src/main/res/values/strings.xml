@@ -8,4 +8,5 @@
     <string name="ndef_format_error">Format error while writing Ndef message…</string>
     <string name="ndef_io_error">IO error while writing Ndef message…</string>
     <string name="ndef_write_complete">Ndef write completed!</string>
+    <string name="no_available_tag">No tag is currently available</string>
 </resources>
