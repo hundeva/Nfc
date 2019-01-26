@@ -25,7 +25,7 @@ public class MessageExtractor {
             } catch (UnsupportedEncodingException e) {
                 message = "ERROR decoding messsage";
             }
-            messages.add(context.getString(R.string.nfc_numbered_record_text, 0, message));
+            messages.add(context.getString(R.string.nfc_numbered_record_text, i, message));
         }
 
         return TextUtils.join("\n", messages);

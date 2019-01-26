@@ -20,7 +20,7 @@ public class NdefFactory {
 
     public NdefRecord createNdefRecordForMessage(String message) {
         if (TextUtils.isEmpty(message)) {
-            return null;
+            message = "";
         }
 
         String language = "en";
