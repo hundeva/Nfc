@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">NfcExample</string>
+    <string name="nfc_tag_not_available">Nfc tag is not available</string>
+    <string name="nfc_adapter_not_available">Nfc is not available</string>
+    <string name="nfc_write_hint">Semicolon separated records to write…</string>
+    <string name="nfc_message_numbered_text">Message #%d</string>
+    <string name="nfc_numbered_record_text">#%d - %s</string>
+    <string name="ndef_format_error">Format error while writing Ndef message…</string>
+    <string name="ndef_io_error">IO error while writing Ndef message…</string>
+    <string name="ndef_write_complete">Ndef write completed!</string>
+    <string name="no_available_tag">No tag is currently available</string>
 </resources>
