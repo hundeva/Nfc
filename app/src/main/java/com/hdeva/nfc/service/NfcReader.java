@@ -3,6 +3,7 @@ package com.hdeva.nfc.service;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Parcelable;
 import android.text.TextUtils;
 
@@ -23,5 +24,13 @@ public class NfcReader {
             }
         }
         return ndefMessages;
+    }
+
+    public Tag readTagFromIntent(Intent intent) {
+        Tag tag = null;
+        if (TextUtils.equals(intent.getAction(), NfcAdapter.ACTION_TAG_DISCOVERED)) {
+            tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+        }
+        return tag;
     }
 }

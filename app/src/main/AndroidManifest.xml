@@ -18,6 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
+            android:launchMode="singleTask"
             android:name=".ui.MainActivity"
             android:theme="@style/Theme.Nfc.Splash">
             <intent-filter>

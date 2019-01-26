@@ -2,4 +2,7 @@
     <string name="app_name">NfcExample</string>
     <string name="nfc_tag_not_available">Nfc tag is not available</string>
     <string name="nfc_adapter_not_available">Nfc is not available</string>
+    <string name="nfc_write_hint">Message to write on NFC tag…</string>
+    <string name="nfc_message_numbered_text">Message #%d</string>
+    <string name="nfc_numbered_record_text">#%d - %s</string>
 </resources>
