@@ -18,23 +18,28 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:launchMode="singleTask"
             android:name=".ui.MainActivity"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.Nfc.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.nfc.action.TECH_DISCOVERED"
                 android:resource="@xml/nfc_tech_filter" />
+        </activity>
+        <activity android:name=".ui.ReaderActivity">
+            <intent-filter android:label="nfc_tap">
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="www.nfc.hdeva.com"
+                    android:pathPrefix="/tap"
+                    android:scheme="http" />
+            </intent-filter>
         </activity>
 
     </application>
